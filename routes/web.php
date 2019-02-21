@@ -10,7 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::resource('/suppliers', 'SupplierController');
+Route::resource('/products', 'ProductController');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/createSuppliers', 'pages/createSuppliers');
+Route::view('/createProducts', 'pages/createProducts');
