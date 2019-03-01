@@ -1,6 +1,9 @@
 @extends('layouts.main')
 @section('content')
-    <h2> Create a supplier </h2>
+
+<div class="text-center pt-3 pb-5">
+    <h2>Create a Supplier</h2>
+</div>
 
     <form action="{{ route('suppliers.store')  }}" method="POST">
 

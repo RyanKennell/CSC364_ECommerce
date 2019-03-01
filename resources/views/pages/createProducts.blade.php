@@ -1,9 +1,11 @@
 @extends('layouts.main')
 @section('content')
 
-    <div class="content">
+<div class="content">
 
-    <h2>Create a Product</h2>
+    <div class="text-center pt-3 pb-5">
+        <h2>Create a Product</h2>
+    </div>
 
     <form action="{{ route('products.store')  }}" method="POST">
 
@@ -76,5 +78,5 @@
             </div>
         </div>
     </form>
-
+</div>
 @stop

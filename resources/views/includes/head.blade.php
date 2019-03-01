@@ -10,13 +10,14 @@
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 
     <!-- Custom Css -->
     <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Karla', sans-serif;
             font-weight: 200;
             height: 100vh;
             margin: 0;
