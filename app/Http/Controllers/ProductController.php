@@ -18,6 +18,18 @@ class ProductController extends Controller
         return view('pages.products')->with('products', $products);
     }
 
+    public function catalog()
+    {
+        $products = Product::get()->toArray();
+        return view('pages.productCatalog')->with('products', $products);
+    }
+
+    public function detail($id)
+    {
+        $product = Product::find($id);
+        return view('pages.productDetailed')->with('product', $product);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -55,15 +67,27 @@ class ProductController extends Controller
         //
     }
 
+    public function get($id)
+    {
+        $product = Product::find($id);
+        return view('pages.updateProducts')->with('products', $product);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $product = Product::find($id);
+        $product->fill($input);
+
+        $product->save();
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -84,8 +108,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete($id);
+        return redirect()->route('products.index');
     }
 }

@@ -19,6 +19,12 @@ class SupplierController extends Controller
         return view('pages.suppliers')->with('suppliers', $suppliers);
     }
 
+    public function get($id)
+    {
+        $supplier = Supplier::find($id);
+        return view('pages.updateSuppliers')->with('supplier', $supplier);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -60,9 +66,15 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $supplier = Supplier::find($id);
+        $supplier->fill($input);
+
+        $supplier->save();
+
+        return redirect()->route('suppliers.index');
     }
 
     /**
@@ -72,9 +84,8 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request)
     {
-        //
     }
 
     /**
@@ -83,8 +94,10 @@ class SupplierController extends Controller
      * @param  \App\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplier $supplier)
+    public function destroy($id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $supplier->delete($id);
+        return redirect()->route('suppliers.index');
     }
 }

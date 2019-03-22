@@ -12,12 +12,21 @@
 */
 Auth::routes();
 
-Route::resource('/suppliers', 'SupplierController');
-Route::resource('/products', 'ProductController');
+Route::resource('/admin/suppliers', 'SupplierController');
+Route::resource('/admin/products', 'ProductController');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/createSuppliers', 'pages/createSuppliers');
-Route::view('/createProducts', 'pages/createProducts');
+Route::view('/admin', 'pages/admin');
+Route::view('/admin/createProducts', 'pages/createProducts');
+Route::view('/admin/createSuppliers', 'pages/createSuppliers');
+
+Route::get('/admin/updateSuppliers/{id}', 'SupplierController@get');
+Route::get('/admin/deleteSuppliers/{id}', 'SupplierController@destroy');
+Route::get('/admin/updateProducts/{id}', 'ProductController@get');
+Route::get('/admin/deleteProducts/{id}', 'ProductController@destroy');
+
+Route::get('/productCatalog', 'ProductController@catalog');
+Route::get('/productDetails/{id}', 'ProductController@detail');

@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends('layouts.main')
 @section('content')
 
 <div class="text-center pt-3 pb-4">
@@ -18,7 +18,7 @@
             <th>Supplier ID</th>
             <th>Supplier Sku</th>
             <th>Cost</th>
-            <th>Edit</th>
+            <th>Options</th>
         </tr>
 
         @foreach($products as $product)
@@ -34,11 +34,11 @@
                 <td>{{ $product['supplier_SKU'] }}</td>
                 <td>{{ $product['cost'] }}</td>
                 <td>
-                    <a href="/admin/updateProducts/{{$product['id']}} " class="btn btn-primary a-btn-slide-text">
-                        <span><strong>Edit</strong></span>
+                    <a href="/#" class="btn btn-success a-btn-slide-text">
+                        <span><strong>Add to Cart</strong></span>
                     </a>
-                    <a href="/admin/deleteProducts/{{$product['id']}}" class="btn btn-danger a-btn-slide-text">
-                        <span><strong>Delete</strong></span>
+                    <a href="/productDetails/{{$product['id']}}" class="btn btn-primary a-btn-slide-text">
+                        <span><strong>Details</strong></span>
                     </a>
                 </td>
             </tr>

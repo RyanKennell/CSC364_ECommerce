@@ -21,11 +21,29 @@
             font-weight: 200;
             height: 100vh;
             margin: 0;
+            overflow-x: hidden;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        th {
+            background-color: cornflowerblue;
+            color: white;
+        }
+
+        td {
+            border: 1px solid #000;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .content {
             text-align: center;
         }
+
         .title {
             font-size: 84px;
             padding-bottom: 300px;
@@ -48,10 +66,34 @@
 
         .footer {
             width: 100%;
-            height: 10%;
+            height: 30%;
             background-color: lightblue;
             text-align: center;
-            padding-top: 20px;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        p {
+          color: black;
+        }
+
+        .col-centered{
+            float: none;
+            margin: 0 auto;
+        }
+
+        a.btn:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+        }
+        a.btn {
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
         }
 
     </style>

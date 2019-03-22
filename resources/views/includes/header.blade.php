@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand-sm navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-name" href="{{ url('/') }}">
-                <img src="logo.png" alt="Logo">
+                <img src="/logo.png" alt="Logo">
                 RedApple Commerce
             </a>
 
@@ -13,10 +13,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/suppliers">Suppliers</a></div>
-                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/products">Products</a></div>
-                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/createSuppliers">Create Suppliers</a></div>
-                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/createProducts">Create Products</a></div>
+                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/productCatalog">Products</a></div>
+                    <div class="pl-3 pr-3 btn-light text-dark"><a href="/admin">Admin</a></div>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
