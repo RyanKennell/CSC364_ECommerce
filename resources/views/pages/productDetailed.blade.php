@@ -58,10 +58,10 @@
                 </div>
 
                 <div class="row m-2" style="display: block">
-                    <a href="/" class="btn btn-danger a-btn-slide-text">
+                    <a href="/productCatalog" class="btn btn-danger a-btn-slide-text">
                         <span><strong>Back</strong></span>
                     </a>
-                    <a href="/#" class="btn btn-success a-btn-slide-text">
+                    <a href="/addSC/{{$product['id']}}" class="btn btn-success a-btn-slide-text">
                         <span><strong>Add to Cart</strong></span>
                     </a>
                 </div>

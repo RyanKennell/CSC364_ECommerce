@@ -17,7 +17,6 @@
             <th>Date Added</th>
             <th>Supplier ID</th>
             <th>Supplier Sku</th>
-            <th>Cost</th>
             <th>Options</th>
         </tr>
 
@@ -32,9 +31,8 @@
                 <td>{{ $product['date_added'] }}</td>
                 <td>{{ $product['supplier_ID'] }}</td>
                 <td>{{ $product['supplier_SKU'] }}</td>
-                <td>{{ $product['cost'] }}</td>
                 <td>
-                    <a href="/#" class="btn btn-success a-btn-slide-text">
+                    <a href="/addSC/{{$product['id']}}" class="btn btn-success a-btn-slide-text">
                         <span><strong>Add to Cart</strong></span>
                     </a>
                     <a href="/productDetails/{{$product['id']}}" class="btn btn-primary a-btn-slide-text">

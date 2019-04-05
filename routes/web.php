@@ -30,3 +30,7 @@ Route::get('/admin/deleteProducts/{id}', 'ProductController@destroy');
 
 Route::get('/productCatalog', 'ProductController@catalog');
 Route::get('/productDetails/{id}', 'ProductController@detail');
+
+Route::get('/sc', 'CartItemController@index');
+Route::get('/addSC/{id}', 'CartItemController@add');
+Route::get('/removeSC/{id}', 'CartItemController@remove');
