@@ -38,29 +38,26 @@
                         </li>
 
                         @else
-                            <li class="nav-item dropdown" style="list-style-type:none">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle"  href="#" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item dropdown" style="list-style: none">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                            <li class="nav-item" style="list-style-type:none">
-                                <a href="/sc" class="nav-link fas fa-cart-arrow-down"></a>
-                            </li>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                </div>
+                            </li>
 
-
+                            <li class="nav-item " style="list-style: none">
+                                <a href="/sc" class="nav-link fas fa-cart-arrow-down"></a>
                             </li>
                         @endguest
 

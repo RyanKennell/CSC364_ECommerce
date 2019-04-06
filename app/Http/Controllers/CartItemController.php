@@ -14,6 +14,10 @@ class CartItemController extends Controller
     public function add($id)
     {
         $user_id = Auth::id();
+        if($user_id == null)
+        {
+            return redirect('/login');
+        }
 
         $products = Product::get()->toArray();
         $products_adjusted = array();
@@ -24,6 +28,7 @@ class CartItemController extends Controller
         }
 
         $cart = CartItem::get()->toArray();
+        $found = false;
         foreach($cart as $item)
         {
             $found = false;
@@ -33,6 +38,7 @@ class CartItemController extends Controller
                 $model = CartItem::find($item['id']);
                 $model->quantity = $item['quantity'] + 1;
                 $model->save();
+                break;
             }
         }
 
@@ -53,7 +59,12 @@ class CartItemController extends Controller
 
     public function index()
     {
-        $carts = CartItem::where('customer_id', Auth::id())->get()->toArray();
+        $user_id = Auth::id();
+        if($user_id == null)
+        {
+            return redirect('/login');
+        }
+        $carts = CartItem::where('customer_id', $user_id)->get()->toArray();
 
         $products = Product::get()->toArray();
         $products_adjusted = array();
