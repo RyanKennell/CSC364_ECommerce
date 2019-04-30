@@ -14,6 +14,8 @@ Auth::routes();
 
 Route::resource('/admin/suppliers', 'SupplierController');
 Route::resource('/admin/products', 'ProductController');
+Route::resource('/order', 'OrderController');
+Route::resource('/orderDetails', 'OrderDetailController');
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +24,8 @@ Route::get('/', function () {
 Route::view('/admin', 'pages/admin');
 Route::view('/admin/createProducts', 'pages/createProducts');
 Route::view('/admin/createSuppliers', 'pages/createSuppliers');
+
+Route::view('/order', 'pages/purchase');
 
 Route::get('/admin/updateSuppliers/{id}', 'SupplierController@get');
 Route::get('/admin/deleteSuppliers/{id}', 'SupplierController@destroy');
@@ -34,3 +38,6 @@ Route::get('/productDetails/{id}', 'ProductController@detail');
 Route::get('/sc', 'CartItemController@index');
 Route::get('/addSC/{id}', 'CartItemController@add');
 Route::get('/removeSC/{id}', 'CartItemController@remove');
+Route::get('/emptyCart', 'CartItemController@emptyCart');
+Route::get('/emptyCart/{id}', 'OrderController@store');
+Route::get('/orderHistory', 'OrderController@index');

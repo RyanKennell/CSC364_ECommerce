@@ -5,6 +5,7 @@
         <h2> Shopping Cart </h2>
     </div>
 
+
     <div class="table">
         <table class="table table-bordered table-layout">
             <tr>
@@ -33,10 +34,11 @@
         </table>
         <div class="text-center">
             <h2>Order Total ${{ $order_total }}</h2>
-            <a href="/#" class="btn btn-success a-btn-slide-text">
+            <a href="/order" class="btn btn-success a-btn-slide-text">
                 <span><strong>Purchase</strong></span>
             </a>
         </div>
     </div>
+
 
 @stop

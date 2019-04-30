@@ -17,7 +17,6 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('customer_ID')->nullable();
-            $table->string('order_number', 64);
             $table->string('shipping_address', 128)->nullable();
             $table->string('shipping_city', 128)->nullable();
             $table->string('shipping_state', 32)->nullable();

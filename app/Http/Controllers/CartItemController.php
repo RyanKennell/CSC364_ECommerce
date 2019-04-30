@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
+use App\OrderDetails;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-
 use App\CartItem;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,6 +50,20 @@ class CartItemController extends Controller
             CartItem::create($data);
         }
         return redirect('sc');
+    }
+
+    public function emptyCart()
+    {
+        $user_id = Auth::id();
+        $data_info = CartItem::where('customer_id', $user_id)->get();
+        foreach($data_info as $data)
+        {
+            $details = array('order_ID' => Session::get('order_id'), 'product_ID' => $data['product_id'], 'fulfilled_by_ID' => '0', 'price' => $data['price'], 'quantity' => $data['quantity'], 'ship_date' => date("Y-m-d H:i:s"));
+            $order_detail = OrderDetails::create($details);
+            $item = CartItem::find($data['id']);
+            $item->delete();
+        }
+        return redirect('/')->with('purchase', 'true');
     }
 
     public function remove($id)
